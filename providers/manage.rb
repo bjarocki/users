@@ -37,7 +37,9 @@ action :create do
   users_groups = {}
   users_groups[new_resource.group_name] = []
 
-  search(new_resource.data_bag, "groups:#{new_resource.search_group} AND NOT action:remove") do |u|
+  users = new_resource.users || search(new_resource.data_bag, "groups:#{new_resource.search_group} AND NOT action:remove")
+
+  users.each do |u|
     u['username'] ||= u['id']
     u['groups'].each do |g|
       users_groups[g] = [] unless users_groups.key?(g)

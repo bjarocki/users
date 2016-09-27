@@ -1,6 +1,9 @@
 # users Cookbook CHANGELOG
 This file is used to list changes made in each version of the users cookbook.
 
+## 4.0.2 (2016-09-27)
+- Add users attribute
+
 ## 4.0.1 (2016-09-15)
 - Fix creation of user home directory
 
